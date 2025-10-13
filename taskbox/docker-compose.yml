@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  component-library:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: WhitwellStier_Vaughn_coding_assignment12
+    ports:
+      - "8083:8083"
+    restart: unless-stopped
