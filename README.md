@@ -11,6 +11,9 @@ cd /Users/admin/Component_Library/taskbox
 
 # Setup Instructions
 
+I've saved all the commands I used to make it work
+For Detailed instructions, view the DOCKER_README or the YARN_README for specific instructions. 
+
 ## Requirements
 
 - Node.js 20 or higher
@@ -121,27 +124,4 @@ src/
 │   │   └── index.ts
 │   └── index.ts
 └── ...
-```
-
-## Troubleshooting
-
-### Port 8083 Already in Use
-
-Check what is using the port:
-
-```bash
-lsof -i :8083
-```
-
-Kill the process:
-
-```bash
-kill -9 <PID>
-```
-
-Or change the port in `docker-compose.yml`:
-
-```yaml
-ports:
-  - "8084:8083"
 ```
