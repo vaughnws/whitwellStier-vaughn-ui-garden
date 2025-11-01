@@ -108,21 +108,9 @@ export const CustomBackground: Story = {
 export const AllStatuses: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-      <Status
-        status="healthy"
-        description="5/5 services running"
-        showPulse
-      />
-      <Status
-        status="warning"
-        description="4/5 services running"
-        showPulse
-      />
-      <Status
-        status="critical"
-        description="2/5 services running"
-        showPulse
-      />
+      <Status status="healthy" description="5/5 services running" showPulse />
+      <Status status="warning" description="4/5 services running" showPulse />
+      <Status status="critical" description="2/5 services running" showPulse />
     </div>
   ),
 };

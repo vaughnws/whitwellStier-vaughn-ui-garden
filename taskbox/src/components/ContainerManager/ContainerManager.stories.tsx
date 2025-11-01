@@ -54,7 +54,7 @@ export const Interactive: Story = {
 
     const handleStart = (name: string) => {
       setContainers(
-        containers.map((c) =>
+        containers.map(c =>
           c.name === name ? { ...c, status: 'running' as const } : c
         )
       );
@@ -62,7 +62,7 @@ export const Interactive: Story = {
 
     const handleStop = (name: string) => {
       setContainers(
-        containers.map((c) =>
+        containers.map(c =>
           c.name === name ? { ...c, status: 'stopped' as const } : c
         )
       );
@@ -70,13 +70,13 @@ export const Interactive: Story = {
 
     const handleStartAll = () => {
       setContainers(
-        containers.map((c) => ({ ...c, status: 'running' as const }))
+        containers.map(c => ({ ...c, status: 'running' as const }))
       );
     };
 
     const handleStopAll = () => {
       setContainers(
-        containers.map((c) => ({ ...c, status: 'stopped' as const }))
+        containers.map(c => ({ ...c, status: 'stopped' as const }))
       );
     };
 

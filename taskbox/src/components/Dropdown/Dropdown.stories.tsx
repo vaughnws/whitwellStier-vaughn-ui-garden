@@ -10,21 +10,21 @@ const meta: Meta<typeof Dropdown> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color of the dropdown'
+      description: 'Background color of the dropdown',
     },
-    color: { 
+    color: {
       control: 'color',
-      description: 'Text color of the dropdown'
+      description: 'Text color of the dropdown',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state of the dropdown'
+      description: 'Disabled state of the dropdown',
     },
-    placeholder: { 
+    placeholder: {
       control: 'text',
-      description: 'Placeholder text'
+      description: 'Placeholder text',
     },
     onChange: { action: 'changed' },
   },
@@ -76,7 +76,7 @@ export const CustomColors: Story = {
 export const Interactive: Story = {
   render: () => {
     const [selectedValue, setSelectedValue] = useState('');
-    
+
     return (
       <div>
         <Dropdown
@@ -85,9 +85,7 @@ export const Interactive: Story = {
           placeholder="Select an option"
           onChange={setSelectedValue}
         />
-        <p style={{ marginTop: '20px' }}>
-          Selected: {selectedValue || 'None'}
-        </p>
+        <p style={{ marginTop: '20px' }}>Selected: {selectedValue || 'None'}</p>
       </div>
     );
   },

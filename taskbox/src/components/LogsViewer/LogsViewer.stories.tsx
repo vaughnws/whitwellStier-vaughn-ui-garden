@@ -39,11 +39,7 @@ export const FewLogs: Story = {
 
 export const ManyLogs: Story = {
   args: {
-    logs: [
-      ...sampleLogs,
-      ...sampleLogs,
-      ...sampleLogs,
-    ],
+    logs: [...sampleLogs, ...sampleLogs, ...sampleLogs],
   },
 };
 

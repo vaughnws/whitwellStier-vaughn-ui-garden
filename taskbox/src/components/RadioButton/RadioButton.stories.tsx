@@ -10,25 +10,25 @@ const meta: Meta<typeof RadioButton> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color when checked'
+      description: 'Background color when checked',
     },
-    color: { 
+    color: {
       control: 'color',
-      description: 'Text color'
+      description: 'Text color',
     },
-    label: { 
+    label: {
       control: 'text',
-      description: 'Label text'
+      description: 'Label text',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state'
+      description: 'Disabled state',
     },
-    checked: { 
+    checked: {
       control: 'boolean',
-      description: 'Checked state'
+      description: 'Checked state',
     },
     onChange: { action: 'changed' },
   },
@@ -91,7 +91,7 @@ export const CustomColor: Story = {
 export const RadioGroup: Story = {
   render: () => {
     const [selected, setSelected] = useState('option1');
-    
+
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <RadioButton

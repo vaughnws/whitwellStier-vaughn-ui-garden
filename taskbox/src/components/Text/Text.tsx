@@ -11,12 +11,12 @@ const StyledText = styled.p<{
   disabled?: boolean;
 }>`
   font-family: 'Open Sans', sans-serif;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
   transition: all 0.3s ease;
   margin: 0;
-  
+
   /* Size variants */
-  font-size: ${(props) => {
+  font-size: ${props => {
     switch (props.$size) {
       case 'small':
         return '12px';
@@ -26,26 +26,26 @@ const StyledText = styled.p<{
         return '14px';
     }
   }};
-  
+
   /* Text alignment */
-  text-align: ${(props) => props.$align || 'left'};
-  
+  text-align: ${props => props.$align || 'left'};
+
   /* Font weight */
-  font-weight: ${(props) => (props.$weight === 'bold' ? '700' : '400')};
-  
+  font-weight: ${props => (props.$weight === 'bold' ? '700' : '400')};
+
   /* Colors */
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.disabled ? '#f5f5f5' : props.$backgroundColor || 'transparent'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
-  
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
+
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+
   padding: 4px;
   border-radius: 4px;
-  
+
   /* Responsive */
   @media (max-width: 768px) {
-    font-size: ${(props) => {
+    font-size: ${props => {
       switch (props.$size) {
         case 'small':
           return '11px';

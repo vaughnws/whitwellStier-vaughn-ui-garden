@@ -3,9 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { NetworkStats } from './NetworkStats';
 
-const sampleInterfaces = [
-  { interface: 'eth0', address: '192.168.1.100' },
-];
+const sampleInterfaces = [{ interface: 'eth0', address: '192.168.1.100' }];
 
 describe('NetworkStats Component', () => {
   it('should render the network stats and be visible', () => {
@@ -27,7 +25,7 @@ describe('NetworkStats Component', () => {
     render(<NetworkStats interfaces={sampleInterfaces} disabled />);
     const heading = screen.getByText(/network/i);
     const container = heading.closest('div');
-    
+
     if (container) {
       const cursorStyle = window.getComputedStyle(container).cursor;
       expect(cursorStyle).toBe('not-allowed');

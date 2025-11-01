@@ -3,15 +3,18 @@ import styled from 'styled-components';
 import { CalendarProps } from './Calendar.types';
 import { CalendarIcon } from '../icons/icons';
 
-const CalendarContainer = styled.div<{ $backgroundColor?: string; disabled?: boolean }>`
+const CalendarContainer = styled.div<{
+  $backgroundColor?: string;
+  disabled?: boolean;
+}>`
   font-family: 'Open Sans', sans-serif;
-  background-color: ${(props) => props.$backgroundColor || '#272727'};
+  background-color: ${props => props.$backgroundColor || '#272727'};
   border-radius: 12px;
   padding: 24px;
   border: 1px solid #303030;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -115,9 +118,15 @@ const formatEventDate = (dateStr: string): string => {
   tomorrow.setDate(tomorrow.getDate() + 1);
 
   if (date.toDateString() === today.toDateString()) {
-    return 'Today ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return (
+      'Today ' +
+      date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    );
   } else if (date.toDateString() === tomorrow.toDateString()) {
-    return 'Tomorrow ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return (
+      'Tomorrow ' +
+      date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    );
   } else {
     return (
       date.toLocaleDateString() +
@@ -149,7 +158,9 @@ export const Calendar: React.FC<CalendarProps> = ({
             <EventCard key={idx}>
               <EventTitle>{event.title}</EventTitle>
               <EventTime>{formatEventDate(event.start)}</EventTime>
-              {event.location && <EventLocation>{event.location}</EventLocation>}
+              {event.location && (
+                <EventLocation>{event.location}</EventLocation>
+              )}
             </EventCard>
           ))
         ) : (

@@ -9,25 +9,25 @@ const meta: Meta<typeof HeroImage> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color overlay'
+      description: 'Background color overlay',
     },
-    color: { 
+    color: {
       control: 'color',
-      description: 'Text color for title and subtitle'
+      description: 'Text color for title and subtitle',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state'
+      description: 'Disabled state',
     },
-    height: { 
+    height: {
       control: 'text',
-      description: 'Height of the hero image'
+      description: 'Height of the hero image',
     },
-    overlayOpacity: { 
+    overlayOpacity: {
       control: { type: 'range', min: 0, max: 1, step: 0.1 },
-      description: 'Overlay opacity'
+      description: 'Overlay opacity',
     },
     onClick: { action: 'clicked' },
   },

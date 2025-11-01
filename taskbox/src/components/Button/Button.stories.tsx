@@ -9,26 +9,26 @@ const meta: Meta<typeof Button> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color of the button'
+      description: 'Background color of the button',
     },
-    color: { 
+    color: {
       control: 'color',
-      description: 'Text color of the button'
+      description: 'Text color of the button',
     },
-    label: { 
+    label: {
       control: 'text',
-      description: 'Button text content'
+      description: 'Button text content',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state of the button'
+      description: 'Disabled state of the button',
     },
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
-      description: 'Size of the button'
+      description: 'Size of the button',
     },
     onClick: { action: 'clicked' },
   },

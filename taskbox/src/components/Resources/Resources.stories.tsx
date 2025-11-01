@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Resources } from './Resources';
 import { Status } from '../Status';
-import { CpuIcon, ActivityIcon, HardDriveIcon, ThermometerIcon } from '../icons/icons';
+import {
+  CpuIcon,
+  ActivityIcon,
+  HardDriveIcon,
+  ThermometerIcon,
+} from '../icons/icons';
 
 const meta: Meta<typeof Resources> = {
   title: 'Components/Resources',
@@ -108,37 +113,55 @@ export const FullBar: Story = {
 
 export const SystemResourcesPanel: Story = {
   render: () => (
-    <div style={{ 
-      backgroundColor: '#272727', 
-      padding: '24px', 
-      borderRadius: '12px',
-      border: '1px solid #303030',
-      maxWidth: '400px'
-    }}>
-      <h2 style={{ 
-        fontSize: '20px', 
-        fontWeight: 'bold', 
-        marginBottom: '20px',
-        color: '#f0f0f0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px'
-      }}>
+    <div
+      style={{
+        backgroundColor: '#272727',
+        padding: '24px',
+        borderRadius: '12px',
+        border: '1px solid #303030',
+        maxWidth: '400px',
+      }}
+    >
+      <h2
+        style={{
+          fontSize: '20px',
+          fontWeight: 'bold',
+          marginBottom: '20px',
+          color: '#f0f0f0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+        }}
+      >
         <Status status="warning" description="5/5 services running" />
       </h2>
       <Resources label="CPU" value={45} icon={<CpuIcon />} />
       <Resources label="RAM" value={72} icon={<ActivityIcon />} />
-      <Resources label="Disk" value={88} icon={<HardDriveIcon />} warning={85} critical={95} />
-      <Resources label="Temp" value={65} icon={<ThermometerIcon />} warning={65} critical={75} />
-      <div style={{ 
-        marginTop: '16px', 
-        fontSize: '14px', 
-        color: '#f0f0f0', 
-        opacity: 0.6,
-        textAlign: 'center',
-        fontFamily: 'Open Sans, sans-serif'
-      }}>
+      <Resources
+        label="Disk"
+        value={88}
+        icon={<HardDriveIcon />}
+        warning={85}
+        critical={95}
+      />
+      <Resources
+        label="Temp"
+        value={65}
+        icon={<ThermometerIcon />}
+        warning={65}
+        critical={75}
+      />
+      <div
+        style={{
+          marginTop: '16px',
+          fontSize: '14px',
+          color: '#f0f0f0',
+          opacity: 0.6,
+          textAlign: 'center',
+          fontFamily: 'Open Sans, sans-serif',
+        }}
+      >
         Uptime: 5d 12h 34m
       </div>
     </div>

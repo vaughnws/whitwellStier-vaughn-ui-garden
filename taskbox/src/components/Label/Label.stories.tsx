@@ -9,26 +9,26 @@ const meta: Meta<typeof Label> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color of the label'
+      description: 'Background color of the label',
     },
-    color: { 
+    color: {
       control: 'color',
-      description: 'Text color of the label'
+      description: 'Text color of the label',
     },
-    text: { 
+    text: {
       control: 'text',
-      description: 'Label text content'
+      description: 'Label text content',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state of the label'
+      description: 'Disabled state of the label',
     },
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
-      description: 'Size of the label'
+      description: 'Size of the label',
     },
   },
 };

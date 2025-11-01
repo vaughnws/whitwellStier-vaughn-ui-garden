@@ -35,7 +35,7 @@ describe('Calendar Component', () => {
     render(<Calendar events={sampleEvents} disabled />);
     const heading = screen.getByText(/upcoming classes/i);
     const container = heading.closest('div');
-    
+
     if (container) {
       const cursorStyle = window.getComputedStyle(container).cursor;
       expect(cursorStyle).toBe('not-allowed');

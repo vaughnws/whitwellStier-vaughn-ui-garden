@@ -11,28 +11,28 @@ const StyledSelect = styled.select<{
   font-size: 14px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: all 0.3s ease;
   width: 100%;
   min-width: 200px;
-  
-  background-color: ${(props) =>
+
+  background-color: ${props =>
     props.disabled ? '#e0e0e0' : props.$backgroundColor || '#ffffff'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
-  
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
+
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+
   &:hover {
-    border-color: ${(props) => (props.disabled ? '#ddd' : '#999')};
+    border-color: ${props => (props.disabled ? '#ddd' : '#999')};
   }
-  
+
   &:focus {
     outline: none;
-    border-color: ${(props) => (props.disabled ? '#ddd' : '#1976d2')};
-    box-shadow: ${(props) =>
+    border-color: ${props => (props.disabled ? '#ddd' : '#1976d2')};
+    box-shadow: ${props =>
       props.disabled ? 'none' : '0 0 0 2px rgba(25, 118, 210, 0.2)'};
   }
-  
+
   /* Responsive */
   @media (max-width: 768px) {
     padding: 8px 12px;
@@ -71,7 +71,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           {placeholder}
         </option>
       )}
-      {options.map((option) => (
+      {options.map(option => (
         <option key={option.value} value={option.value}>
           {option.label}
         </option>

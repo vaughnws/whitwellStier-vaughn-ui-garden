@@ -11,7 +11,10 @@ const pulse = keyframes`
   }
 `;
 
-const StatusContainer = styled.div<{ $backgroundColor?: string; disabled?: boolean }>`
+const StatusContainer = styled.div<{
+  $backgroundColor?: string;
+  disabled?: boolean;
+}>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,24 +24,27 @@ const StatusContainer = styled.div<{ $backgroundColor?: string; disabled?: boole
   text-align: center;
   padding: 24px;
   border-radius: 8px;
-  background-color: ${(props) => props.$backgroundColor || '#1a1a1a'};
+  background-color: ${props => props.$backgroundColor || '#1a1a1a'};
   border: 2px solid;
   transition: all 0.3s ease;
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
 
   @media (max-width: 768px) {
     padding: 20px;
   }
 `;
 
-const PulseIndicator = styled.div<{ $status: HealthStatus; $showPulse?: boolean }>`
+const PulseIndicator = styled.div<{
+  $status: HealthStatus;
+  $showPulse?: boolean;
+}>`
   display: inline-block;
   width: 16px;
   height: 16px;
   border-radius: 50%;
   margin-bottom: 12px;
-  background-color: ${(props) => {
+  background-color: ${props => {
     switch (props.$status) {
       case 'critical':
         return '#ef4444';
@@ -49,7 +55,8 @@ const PulseIndicator = styled.div<{ $status: HealthStatus; $showPulse?: boolean 
         return '#22c55e';
     }
   }};
-  animation: ${(props) => (props.$showPulse ? pulse : 'none')} 2s ease-in-out infinite;
+  animation: ${props => (props.$showPulse ? pulse : 'none')} 2s ease-in-out
+    infinite;
 
   @media (max-width: 768px) {
     width: 14px;
@@ -62,7 +69,7 @@ const StatusText = styled.div<{ $status: HealthStatus; disabled?: boolean }>`
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 8px;
-  color: ${(props) => {
+  color: ${props => {
     if (props.disabled) return '#999999';
     switch (props.$status) {
       case 'critical':
@@ -82,8 +89,8 @@ const StatusText = styled.div<{ $status: HealthStatus; disabled?: boolean }>`
 
 const Description = styled.div<{ disabled?: boolean }>`
   font-size: 14px;
-  color: ${(props) => (props.disabled ? '#999999' : '#f0f0f0')};
-  opacity: ${(props) => (props.disabled ? 1 : 0.6)};
+  color: ${props => (props.disabled ? '#999999' : '#f0f0f0')};
+  opacity: ${props => (props.disabled ? 1 : 0.6)};
   margin-top: 4px;
 
   @media (max-width: 768px) {
@@ -127,7 +134,9 @@ export const Status: React.FC<StatusProps> = ({
       <StatusText $status={status} disabled={disabled}>
         {displayText}
       </StatusText>
-      {description && <Description disabled={disabled}>{description}</Description>}
+      {description && (
+        <Description disabled={disabled}>{description}</Description>
+      )}
     </StatusContainer>
   );
 };

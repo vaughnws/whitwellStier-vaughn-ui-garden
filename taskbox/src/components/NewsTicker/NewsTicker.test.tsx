@@ -3,9 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { NewsTicker } from './NewsTicker';
 
-const sampleNews = [
-  { title: 'Test News Item', link: 'https://example.com' },
-];
+const sampleNews = [{ title: 'Test News Item', link: 'https://example.com' }];
 
 describe('NewsTicker Component', () => {
   it('should render the news ticker and be visible', () => {
@@ -24,7 +22,7 @@ describe('NewsTicker Component', () => {
   it('should have not-allowed cursor when disabled', () => {
     const { container } = render(<NewsTicker news={sampleNews} disabled />);
     const ticker = container.firstChild as HTMLElement;
-    
+
     if (ticker) {
       const cursorStyle = window.getComputedStyle(ticker).cursor;
       expect(cursorStyle).toBe('not-allowed');

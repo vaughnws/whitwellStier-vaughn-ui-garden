@@ -17,7 +17,7 @@ describe('Table Component', () => {
         </tbody>
       </Table>
     );
-    
+
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument();
     expect(table).toBeVisible();
@@ -36,10 +36,10 @@ describe('Table Component', () => {
         </tbody>
       </Table>
     );
-    
+
     const table = screen.getByRole('table');
     const enabledBackground = window.getComputedStyle(table).backgroundColor;
-    
+
     rerender(
       <Table disabled backgroundColor="#ffffff">
         <TableHeader>
@@ -52,7 +52,7 @@ describe('Table Component', () => {
         </tbody>
       </Table>
     );
-    
+
     const disabledBackground = window.getComputedStyle(table).backgroundColor;
     expect(enabledBackground).not.toBe(disabledBackground);
   });
@@ -67,7 +67,7 @@ describe('Table Component', () => {
         </tbody>
       </Table>
     );
-    
+
     const table = screen.getByRole('table');
     const cursorStyle = window.getComputedStyle(table).cursor;
     expect(cursorStyle).toBe('not-allowed');

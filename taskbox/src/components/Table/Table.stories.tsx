@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof Table>;
 
 export const Default: Story = {
-  render: (args) => (
+  render: args => (
     <Table {...args}>
       <TableHeader>
         <TableCell isHeader>Name</TableCell>
@@ -46,7 +46,7 @@ export const Default: Story = {
 };
 
 export const Disabled: Story = {
-  render: (args) => (
+  render: args => (
     <Table {...args}>
       <TableHeader disabled>
         <TableCell isHeader>Name</TableCell>
@@ -73,7 +73,7 @@ export const Disabled: Story = {
 };
 
 export const WithFooter: Story = {
-  render: (args) => (
+  render: args => (
     <Table {...args}>
       <TableHeader>
         <TableCell isHeader>Product</TableCell>
@@ -105,7 +105,7 @@ export const WithFooter: Story = {
 };
 
 export const ColoredRows: Story = {
-  render: (args) => (
+  render: args => (
     <Table {...args}>
       <TableHeader backgroundColor="#4caf50" color="#ffffff">
         <TableCell isHeader>Name</TableCell>

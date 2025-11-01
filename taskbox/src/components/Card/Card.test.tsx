@@ -15,7 +15,7 @@ describe('Card Component', () => {
     const title = screen.getByText(/test card/i);
     expect(title).toBeInTheDocument();
     expect(title).toBeVisible();
-    
+
     const content = screen.getByText(/test content/i);
     expect(content).toBeInTheDocument();
   });
@@ -30,9 +30,11 @@ describe('Card Component', () => {
     );
     const title = screen.getByText(/test card/i);
     const card = title.closest('div')?.parentElement;
-    
-    const enabledBackground = card ? window.getComputedStyle(card).backgroundColor : '';
-    
+
+    const enabledBackground = card
+      ? window.getComputedStyle(card).backgroundColor
+      : '';
+
     rerender(
       <Card
         title="Test Card"
@@ -41,23 +43,19 @@ describe('Card Component', () => {
         backgroundColor="#ffffff"
       />
     );
-    
-    const disabledBackground = card ? window.getComputedStyle(card).backgroundColor : '';
-    
+
+    const disabledBackground = card
+      ? window.getComputedStyle(card).backgroundColor
+      : '';
+
     expect(enabledBackground).not.toBe(disabledBackground);
   });
 
   it('should have not-allowed cursor when disabled', () => {
-    render(
-      <Card
-        title="Test Card"
-        content="Test content"
-        disabled
-      />
-    );
+    render(<Card title="Test Card" content="Test content" disabled />);
     const title = screen.getByText(/test card/i);
     const card = title.closest('div')?.parentElement;
-    
+
     if (card) {
       const cursorStyle = window.getComputedStyle(card).cursor;
       expect(cursorStyle).toBe('not-allowed');

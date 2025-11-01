@@ -22,7 +22,13 @@ describe('ContainerManager Component', () => {
   });
 
   it('should show unlock button when locked', () => {
-    render(<ContainerManager containers={sampleContainers} isPinUnlocked={false} onUnlock={() => {}} />);
+    render(
+      <ContainerManager
+        containers={sampleContainers}
+        isPinUnlocked={false}
+        onUnlock={() => {}}
+      />
+    );
     const unlockButtons = screen.getAllByRole('button');
     expect(unlockButtons.length).toBeGreaterThan(0);
   });
@@ -31,7 +37,7 @@ describe('ContainerManager Component', () => {
     render(<ContainerManager containers={sampleContainers} disabled />);
     const heading = screen.getByText(/containers/i);
     const container = heading.closest('div');
-    
+
     if (container) {
       const cursorStyle = window.getComputedStyle(container).cursor;
       expect(cursorStyle).toBe('not-allowed');

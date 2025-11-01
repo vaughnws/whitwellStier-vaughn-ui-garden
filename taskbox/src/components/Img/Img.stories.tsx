@@ -9,30 +9,30 @@ const meta: Meta<typeof Img> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color of the image container'
+      description: 'Background color of the image container',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state of the image'
+      description: 'Disabled state of the image',
     },
-    width: { 
+    width: {
       control: 'text',
-      description: 'Width of the image'
+      description: 'Width of the image',
     },
-    height: { 
+    height: {
       control: 'text',
-      description: 'Height of the image'
+      description: 'Height of the image',
     },
-    borderRadius: { 
+    borderRadius: {
       control: 'text',
-      description: 'Border radius of the image'
+      description: 'Border radius of the image',
     },
     objectFit: {
       control: { type: 'select' },
       options: ['contain', 'cover', 'fill', 'none', 'scale-down'],
-      description: 'Object fit property'
+      description: 'Object fit property',
     },
     onClick: { action: 'clicked' },
   },

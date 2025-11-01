@@ -85,7 +85,7 @@ export const Interactive: Story = {
     };
 
     const handleDelete = (id: string | number) => {
-      setMessages(messages.filter((m) => m.id !== id));
+      setMessages(messages.filter(m => m.id !== id));
     };
 
     return (

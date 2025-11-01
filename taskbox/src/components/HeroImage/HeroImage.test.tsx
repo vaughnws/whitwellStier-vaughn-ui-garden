@@ -27,9 +27,9 @@ describe('HeroImage Component', () => {
       />
     );
     const img = screen.getByRole('img');
-    
+
     const enabledFilter = window.getComputedStyle(img).filter;
-    
+
     rerender(
       <HeroImage
         src="https://vaughnws.ca/aboutpic/vwithm.png"
@@ -38,9 +38,9 @@ describe('HeroImage Component', () => {
         disabled
       />
     );
-    
+
     const disabledFilter = window.getComputedStyle(img).filter;
-    
+
     expect(enabledFilter).not.toBe(disabledFilter);
   });
 
@@ -55,7 +55,7 @@ describe('HeroImage Component', () => {
     );
     const img = screen.getByRole('img');
     const container = img.parentElement;
-    
+
     if (container) {
       const cursorStyle = window.getComputedStyle(container).cursor;
       expect(cursorStyle).toBe('not-allowed');

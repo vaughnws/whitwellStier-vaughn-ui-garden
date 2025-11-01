@@ -3,15 +3,18 @@ import styled from 'styled-components';
 import { MessageBoardProps, Message } from './MessageBoard.types';
 import { SendIcon, TrashIcon, MessageSquareIcon } from '../icons/icons';
 
-const BoardContainer = styled.div<{ $backgroundColor?: string; disabled?: boolean }>`
+const BoardContainer = styled.div<{
+  $backgroundColor?: string;
+  disabled?: boolean;
+}>`
   font-family: 'Open Sans', sans-serif;
-  background-color: ${(props) => props.$backgroundColor || '#272727'};
+  background-color: ${props => props.$backgroundColor || '#272727'};
   border-radius: 12px;
   padding: 24px;
   border: 1px solid #303030;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -90,7 +93,7 @@ const MessagesContainer = styled.div`
 
 const MessageBubble = styled.div<{ $isOwn?: boolean }>`
   display: flex;
-  justify-content: ${(props) => (props.$isOwn ? 'flex-end' : 'flex-start')};
+  justify-content: ${props => (props.$isOwn ? 'flex-end' : 'flex-start')};
   margin-bottom: 12px;
   position: relative;
 
@@ -108,18 +111,18 @@ const MessageMeta = styled.div<{ $isOwn?: boolean }>`
   color: #f0f0f0;
   opacity: 0.6;
   margin-bottom: 4px;
-  text-align: ${(props) => (props.$isOwn ? 'right' : 'left')};
+  text-align: ${props => (props.$isOwn ? 'right' : 'left')};
 `;
 
 const MessageText = styled.div<{ $isOwn?: boolean }>`
   position: relative;
   padding: 12px 16px;
   border-radius: 8px;
-  background-color: ${(props) => (props.$isOwn ? '#ff6b35' : '#272727')};
+  background-color: ${props => (props.$isOwn ? '#ff6b35' : '#272727')};
   color: #f0f0f0;
   border: 1px solid #303030;
-  border-bottom-right-radius: ${(props) => (props.$isOwn ? '0' : '8px')};
-  border-bottom-left-radius: ${(props) => (props.$isOwn ? '8px' : '0')};
+  border-bottom-right-radius: ${props => (props.$isOwn ? '0' : '8px')};
+  border-bottom-left-radius: ${props => (props.$isOwn ? '8px' : '0')};
   word-wrap: break-word;
   font-size: 14px;
 
@@ -269,7 +272,7 @@ export const MessageBoard: React.FC<MessageBoardProps> = ({
       </Header>
 
       <MessagesContainer>
-        {messages.slice(-5).map((msg) => {
+        {messages.slice(-5).map(msg => {
           const isOwn = msg.username === currentUsername;
           return (
             <MessageBubble key={msg.id} $isOwn={isOwn}>
@@ -299,12 +302,15 @@ export const MessageBoard: React.FC<MessageBoardProps> = ({
         <Input
           type="text"
           value={newMessage}
-          onChange={(e) => onMessageChange?.(e.target.value)}
+          onChange={e => onMessageChange?.(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder="Type a message..."
           disabled={disabled}
         />
-        <SendButton onClick={onSendMessage} disabled={disabled || !newMessage.trim()}>
+        <SendButton
+          onClick={onSendMessage}
+          disabled={disabled || !newMessage.trim()}
+        >
           <SendIcon />
         </SendButton>
       </InputContainer>

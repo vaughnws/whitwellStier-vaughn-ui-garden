@@ -66,12 +66,16 @@ export const ManyEvents: Story = {
       ...sampleEvents,
       {
         title: 'TypeScript Workshop',
-        start: new Date(today.getTime() + 8 * 24 * 60 * 60 * 1000).toISOString(),
+        start: new Date(
+          today.getTime() + 8 * 24 * 60 * 60 * 1000
+        ).toISOString(),
         location: 'Room 105',
       },
       {
         title: 'Node.js Fundamentals',
-        start: new Date(today.getTime() + 10 * 24 * 60 * 60 * 1000).toISOString(),
+        start: new Date(
+          today.getTime() + 10 * 24 * 60 * 60 * 1000
+        ).toISOString(),
       },
     ],
   },

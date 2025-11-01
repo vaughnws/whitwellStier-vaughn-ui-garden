@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { RadioButtonProps } from './RadioButton.types';
 
-const RadioContainer = styled.label <({ disabled?: boolean })>`
+const RadioContainer = styled.label<{ disabled?: boolean }>`
   display: inline-flex;
   align-items: center;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   user-select: none;
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
   transition: all 0.3s ease;
 
   @media (max-width: 768px) {
@@ -32,47 +32,46 @@ const StyledRadio = styled.div<{
   width: 20px;
   height: 20px;
   border: 2px solid
-    ${(props) =>
+    ${props =>
       props.disabled
         ? '#cccccc'
         : props.$checked
-        ? props.$backgroundColor || '#1976d2'
-        : '#999999'};
+          ? props.$backgroundColor || '#1976d2'
+          : '#999999'};
   border-radius: 50%;
   margin-right: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-color: ${(props) =>
-    props.disabled ? '#f5f5f5' : '#ffffff'};
+  background-color: ${props => (props.disabled ? '#f5f5f5' : '#ffffff')};
 
   &::after {
     content: '';
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: ${(props) =>
+    background-color: ${props =>
       props.disabled
         ? '#cccccc'
         : props.$checked
-        ? props.$backgroundColor || '#1976d2'
-        : 'transparent'};
+          ? props.$backgroundColor || '#1976d2'
+          : 'transparent'};
     transition: all 0.3s ease;
   }
 
   ${RadioContainer}:hover & {
-    border-color: ${(props) =>
+    border-color: ${props =>
       props.disabled
         ? '#cccccc'
         : props.$backgroundColor
-        ? `${props.$backgroundColor}dd`
-        : '#1565c0'};
+          ? `${props.$backgroundColor}dd`
+          : '#1565c0'};
   }
 `;
 
 const LabelText = styled.span<{ $color?: string; disabled?: boolean }>`
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
 `;
 
 export const RadioButton: React.FC<RadioButtonProps> = ({

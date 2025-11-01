@@ -11,23 +11,26 @@ const scroll = keyframes`
   }
 `;
 
-const TickerContainer = styled.div<{ $backgroundColor?: string; disabled?: boolean }>`
-  background-color: ${(props) => props.$backgroundColor || '#ff6b35'};
+const TickerContainer = styled.div<{
+  $backgroundColor?: string;
+  disabled?: boolean;
+}>`
+  background-color: ${props => props.$backgroundColor || '#ff6b35'};
   color: #f0f0f0;
   padding: 8px 0;
   overflow: hidden;
   position: relative;
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
 `;
 
 const TickerContent = styled.div<{ $speed: number; disabled?: boolean }>`
   display: flex;
-  animation: ${scroll} ${(props) => props.$speed}s linear infinite;
+  animation: ${scroll} ${props => props.$speed}s linear infinite;
   width: fit-content;
 
   &:hover {
-    animation-play-state: ${(props) => (props.disabled ? 'running' : 'paused')};
+    animation-play-state: ${props => (props.disabled ? 'running' : 'paused')};
   }
 `;
 
@@ -66,7 +69,11 @@ export const NewsTicker: React.FC<NewsTickerProps> = ({
 }) => {
   if (news.length === 0) {
     return (
-      <TickerContainer $backgroundColor={backgroundColor} disabled={disabled} className={className}>
+      <TickerContainer
+        $backgroundColor={backgroundColor}
+        disabled={disabled}
+        className={className}
+      >
         <TickerContent $speed={speed} disabled={disabled}>
           <NewsLink>Loading tech news...</NewsLink>
         </TickerContent>
@@ -75,7 +82,11 @@ export const NewsTicker: React.FC<NewsTickerProps> = ({
   }
 
   return (
-    <TickerContainer $backgroundColor={backgroundColor} disabled={disabled} className={className}>
+    <TickerContainer
+      $backgroundColor={backgroundColor}
+      disabled={disabled}
+      className={className}
+    >
       <TickerContent $speed={speed} disabled={disabled}>
         {[...news, ...news].map((item, idx) => (
           <NewsLink
@@ -83,7 +94,7 @@ export const NewsTicker: React.FC<NewsTickerProps> = ({
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => disabled && e.preventDefault()}
+            onClick={e => disabled && e.preventDefault()}
           >
             <NewsLabel>TECH NEWS:</NewsLabel>
             {item.title}

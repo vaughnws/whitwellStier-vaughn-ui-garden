@@ -8,14 +8,17 @@ import {
   TableFooterProps,
 } from './Table.types';
 
-const StyledTable = styled.table<{ $backgroundColor?: string ; disabled?: boolean }>`
+const StyledTable = styled.table<{
+  $backgroundColor?: string;
+  disabled?: boolean;
+}>`
   font-family: 'Open Sans', sans-serif;
   border-collapse: collapse;
   width: 100%;
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.disabled ? '#f5f5f5' : props.$backgroundColor || '#ffffff'};
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
   border: 1px solid #ddd;
   transition: all 0.3s ease;
 
@@ -24,54 +27,79 @@ const StyledTable = styled.table<{ $backgroundColor?: string ; disabled?: boolea
   }
 `;
 
-const StyledTableHeader = styled.thead<{ $backgroundColor?: string; $color?: string; disabled?: boolean }>`
-  background-color: ${(props) =>
+const StyledTableHeader = styled.thead<{
+  $backgroundColor?: string;
+  $color?: string;
+  disabled?: boolean;
+}>`
+  background-color: ${props =>
     props.disabled ? '#e0e0e0' : props.$backgroundColor || '#f0f0f0'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
   font-weight: bold;
 `;
 
-const StyledTableRow = styled.tr<{ $backgroundColor?: string; $color?: string; disabled?: boolean }>`
-  background-color: ${(props) =>
+const StyledTableRow = styled.tr<{
+  $backgroundColor?: string;
+  $color?: string;
+  disabled?: boolean;
+}>`
+  background-color: ${props =>
     props.disabled ? '#f5f5f5' : props.$backgroundColor || '#ffffff'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
   border-bottom: 1px solid #ddd;
 
   &:hover {
-    background-color: ${(props) =>
-      props.disabled ? '#f5f5f5' : props.$backgroundColor ? `${props.$backgroundColor}ee` : '#f9f9f9'};
+    background-color: ${props =>
+      props.disabled
+        ? '#f5f5f5'
+        : props.$backgroundColor
+          ? `${props.$backgroundColor}ee`
+          : '#f9f9f9'};
   }
 `;
 
-const StyledTableCell = styled.td<{ $backgroundColor?: string; $color?: string; $isHeader?: boolean; disabled?: boolean }>`
+const StyledTableCell = styled.td<{
+  $backgroundColor?: string;
+  $color?: string;
+  $isHeader?: boolean;
+  disabled?: boolean;
+}>`
   padding: 12px;
   text-align: left;
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.disabled ? '#f5f5f5' : props.$backgroundColor || 'transparent'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
-  font-weight: ${(props) => (props.$isHeader ? 'bold' : 'normal')};
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
+  font-weight: ${props => (props.$isHeader ? 'bold' : 'normal')};
 
   @media (max-width: 768px) {
     padding: 8px;
   }
 `;
 
-const StyledTableHeaderCell = styled.th<{ $backgroundColor?: string; $color?: string; disabled?: boolean }>`
+const StyledTableHeaderCell = styled.th<{
+  $backgroundColor?: string;
+  $color?: string;
+  disabled?: boolean;
+}>`
   padding: 12px;
   text-align: left;
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.disabled ? '#e0e0e0' : props.$backgroundColor || 'transparent'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
 
   @media (max-width: 768px) {
     padding: 8px;
   }
 `;
 
-const StyledTableFooter = styled.tfoot<{ $backgroundColor?: string; $color?: string; disabled?: boolean }>`
-  background-color: ${(props) =>
+const StyledTableFooter = styled.tfoot<{
+  $backgroundColor?: string;
+  $color?: string;
+  disabled?: boolean;
+}>`
+  background-color: ${props =>
     props.disabled ? '#e0e0e0' : props.$backgroundColor || '#f0f0f0'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
   font-weight: bold;
 `;
 

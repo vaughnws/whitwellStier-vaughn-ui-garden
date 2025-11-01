@@ -5,13 +5,13 @@ import { ServerIcon } from '../icons/icons';
 
 const Container = styled.div<{ $backgroundColor?: string; disabled?: boolean }>`
   font-family: 'Open Sans', sans-serif;
-  background-color: ${(props) => props.$backgroundColor || '#272727'};
+  background-color: ${props => props.$backgroundColor || '#272727'};
   border-radius: 12px;
   padding: 24px;
   border: 1px solid #303030;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -31,7 +31,6 @@ const Title = styled.h2`
     width: 24px;
     height: 24px;
   }
-  
 
   @media (max-width: 768px) {
     font-size: 18px;
@@ -49,7 +48,7 @@ const ServicesGrid = styled.div`
   }
 `;
 
-const ServiceLink = styled.a <{ disabled?: boolean }>`
+const ServiceLink = styled.a<{ disabled?: boolean }>`
   background-color: #1a1a1a;
   border-radius: 8px;
   padding: 16px;
@@ -57,14 +56,14 @@ const ServiceLink = styled.a <{ disabled?: boolean }>`
   transition: all 0.3s ease;
   text-decoration: none;
   display: block;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
-    background-color: ${(props) => (props.disabled ? '#1a1a1a' : '#303030')};
-    transform: ${(props) => (props.disabled ? 'none' : 'scale(1.05)')};
-    box-shadow: ${(props) =>
+    background-color: ${props => (props.disabled ? '#1a1a1a' : '#303030')};
+    transform: ${props => (props.disabled ? 'none' : 'scale(1.05)')};
+    box-shadow: ${props =>
       props.disabled ? 'none' : '0 8px 12px rgba(0, 0, 0, 0.4)'};
-    border-color: ${(props) => (props.disabled ? '#303030' : '#ff6b35')};
+    border-color: ${props => (props.disabled ? '#303030' : '#ff6b35')};
   }
 
   @media (max-width: 768px) {
@@ -129,7 +128,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
             href={service.url}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => handleClick(e, service.url)}
+            onClick={e => handleClick(e, service.url)}
             disabled={disabled}
           >
             <ServiceName>{service.name}</ServiceName>

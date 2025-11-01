@@ -4,7 +4,11 @@ import '@testing-library/jest-dom';
 import { ServiceCard } from './ServiceCard';
 
 const sampleServices = [
-  { name: 'Test Service', subtitle: 'Test Description', url: 'https://test.com' },
+  {
+    name: 'Test Service',
+    subtitle: 'Test Description',
+    url: 'https://test.com',
+  },
 ];
 
 describe('ServiceCard Component', () => {
@@ -27,7 +31,7 @@ describe('ServiceCard Component', () => {
     render(<ServiceCard services={sampleServices} disabled />);
     const heading = screen.getByText(/services/i);
     const container = heading.closest('div');
-    
+
     if (container) {
       const cursorStyle = window.getComputedStyle(container).cursor;
       expect(cursorStyle).toBe('not-allowed');

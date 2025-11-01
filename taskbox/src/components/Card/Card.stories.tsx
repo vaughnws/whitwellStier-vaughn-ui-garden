@@ -9,21 +9,21 @@ const meta: Meta<typeof Card> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color of the card'
+      description: 'Background color of the card',
     },
-    color: { 
+    color: {
       control: 'color',
-      description: 'Text color'
+      description: 'Text color',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state'
+      description: 'Disabled state',
     },
-    width: { 
+    width: {
       control: 'text',
-      description: 'Width of the card'
+      description: 'Width of the card',
     },
     onClick: { action: 'clicked' },
   },
@@ -37,7 +37,8 @@ const placeholderImage = 'https://vaughnws.ca/projects/drone.jpeg';
 export const Default: Story = {
   args: {
     title: 'Card Title',
-    content: 'This is the card content. It can contain any text or information you want to display.',
+    content:
+      'This is the card content. It can contain any text or information you want to display.',
     imageSrc: placeholderImage,
     imageAlt: 'Placeholder image',
     disabled: false,
@@ -91,10 +92,18 @@ export const Wide: Story = {
 };
 
 export const WithCustomChildren: Story = {
-  render: (args) => (
+  render: args => (
     <Card {...args}>
-      <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #ddd' }}>
-        <button style={{ padding: '8px 16px', marginRight: '8px' }}>Action 1</button>
+      <div
+        style={{
+          marginTop: '16px',
+          paddingTop: '16px',
+          borderTop: '1px solid #ddd',
+        }}
+      >
+        <button style={{ padding: '8px 16px', marginRight: '8px' }}>
+          Action 1
+        </button>
         <button style={{ padding: '8px 16px' }}>Action 2</button>
       </div>
     </Card>

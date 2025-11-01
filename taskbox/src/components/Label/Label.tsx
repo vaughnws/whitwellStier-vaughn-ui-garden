@@ -11,11 +11,11 @@ const StyledLabel = styled.label<{
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   display: inline-block;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
   transition: all 0.3s ease;
-  
+
   /* Size variants */
-  font-size: ${(props) => {
+  font-size: ${props => {
     switch (props.$size) {
       case 'small':
         return '12px';
@@ -25,8 +25,8 @@ const StyledLabel = styled.label<{
         return '14px';
     }
   }};
-  
-  padding: ${(props) => {
+
+  padding: ${props => {
     switch (props.$size) {
       case 'small':
         return '4px 8px';
@@ -36,19 +36,19 @@ const StyledLabel = styled.label<{
         return '6px 12px';
     }
   }};
-  
+
   /* Colors */
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.disabled ? '#e0e0e0' : props.$backgroundColor || 'transparent'};
-  color: ${(props) => (props.disabled ? '#999999' : props.$color || '#333333')};
-  
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  
+  color: ${props => (props.disabled ? '#999999' : props.$color || '#333333')};
+
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+
   border-radius: 4px;
-  
+
   /* Responsive */
   @media (max-width: 768px) {
-    font-size: ${(props) => {
+    font-size: ${props => {
       switch (props.$size) {
         case 'small':
           return '11px';

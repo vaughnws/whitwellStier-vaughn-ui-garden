@@ -28,9 +28,9 @@ describe('Img Component', () => {
       />
     );
     const img = screen.getByRole('img');
-    
+
     const enabledFilter = window.getComputedStyle(img).filter;
-    
+
     rerender(
       <Img
         src="https://vaughnws.ca/aboutpic/vwithm.png"
@@ -40,9 +40,9 @@ describe('Img Component', () => {
         disabled
       />
     );
-    
+
     const disabledFilter = window.getComputedStyle(img).filter;
-    
+
     expect(enabledFilter).not.toBe(disabledFilter);
   });
 
@@ -56,7 +56,7 @@ describe('Img Component', () => {
     );
     const img = screen.getByRole('img');
     const container = img.parentElement;
-    
+
     if (container) {
       const cursorStyle = window.getComputedStyle(container).cursor;
       expect(cursorStyle).toBe('not-allowed');

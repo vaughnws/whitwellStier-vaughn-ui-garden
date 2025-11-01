@@ -1,7 +1,13 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { ContainerManagerProps } from './ContainerManager.types';
-import { PlayIcon, StopIcon, RestartIcon, LockIcon, ServerIcon } from '../icons/icons';
+import {
+  PlayIcon,
+  StopIcon,
+  RestartIcon,
+  LockIcon,
+  ServerIcon,
+} from '../icons/icons';
 
 const pulse = keyframes`
   0%, 100% {
@@ -14,13 +20,13 @@ const pulse = keyframes`
 
 const Container = styled.div<{ $backgroundColor?: string; disabled?: boolean }>`
   font-family: 'Open Sans', sans-serif;
-  background-color: ${(props) => props.$backgroundColor || '#272727'};
+  background-color: ${props => props.$backgroundColor || '#272727'};
   border-radius: 12px;
   padding: 24px;
   border: 1px solid #303030;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -42,7 +48,7 @@ const Title = styled.h2`
   align-items: center;
   gap: 8px;
   margin: 0;
-  
+
   svg {
     width: 24px;
     height: 24px;
@@ -103,9 +109,10 @@ const StatusIndicator = styled.div<{ $status: 'running' | 'stopped' }>`
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.$status === 'running' ? '#22c55e' : '#ef4444'};
-  animation: ${(props) => (props.$status === 'running' ? pulse : 'none')} 2s ease-in-out infinite;
+  animation: ${props => (props.$status === 'running' ? pulse : 'none')} 2s
+    ease-in-out infinite;
 `;
 
 const ContainerName = styled.span`
@@ -130,7 +137,7 @@ const ControlButton = styled.button<{ $color?: string }>`
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  color: ${(props) => props.$color || '#f0f0f0'};
+  color: ${props => props.$color || '#f0f0f0'};
 
   &:hover {
     background-color: #303030;
@@ -158,7 +165,7 @@ const BulkActions = styled.div`
 `;
 
 const BulkButton = styled.button<{ $bgColor?: string }>`
-  background-color: ${(props) => props.$bgColor || '#666666'};
+  background-color: ${props => props.$bgColor || '#666666'};
   color: #f0f0f0;
   border: none;
   border-radius: 8px;

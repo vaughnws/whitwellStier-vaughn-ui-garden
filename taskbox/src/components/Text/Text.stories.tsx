@@ -9,36 +9,36 @@ const meta: Meta<typeof Text> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
-      description: 'Background color of the text'
+      description: 'Background color of the text',
     },
-    color: { 
+    color: {
       control: 'color',
-      description: 'Text color'
+      description: 'Text color',
     },
-    content: { 
+    content: {
       control: 'text',
-      description: 'Text content'
+      description: 'Text content',
     },
-    disabled: { 
+    disabled: {
       control: 'boolean',
-      description: 'Disabled state of the text'
+      description: 'Disabled state of the text',
     },
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
-      description: 'Size of the text'
+      description: 'Size of the text',
     },
     align: {
       control: { type: 'select' },
       options: ['left', 'center', 'right'],
-      description: 'Text alignment'
+      description: 'Text alignment',
     },
     weight: {
       control: { type: 'select' },
       options: ['normal', 'bold'],
-      description: 'Font weight'
+      description: 'Font weight',
     },
   },
 };

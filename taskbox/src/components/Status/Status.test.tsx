@@ -12,17 +12,15 @@ describe('Status Component', () => {
   });
 
   it('should change style when disabled', () => {
-    const { rerender } = render(
-      <Status status="healthy" description="Test" />
-    );
+    const { rerender } = render(<Status status="healthy" description="Test" />);
     const status = screen.getByText(/healthy/i);
-    
+
     const enabledColor = window.getComputedStyle(status).color;
-    
+
     rerender(<Status status="healthy" description="Test" disabled />);
-    
+
     const disabledColor = window.getComputedStyle(status).color;
-    
+
     expect(enabledColor).not.toBe(disabledColor);
   });
 
@@ -30,7 +28,7 @@ describe('Status Component', () => {
     render(<Status status="healthy" disabled />);
     const status = screen.getByText(/healthy/i);
     const container = status.closest('div');
-    
+
     if (container) {
       const cursorStyle = window.getComputedStyle(container).cursor;
       expect(cursorStyle).toBe('not-allowed');

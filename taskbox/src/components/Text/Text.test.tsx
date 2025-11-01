@@ -14,16 +14,16 @@ describe('Text Component', () => {
   it('should change style when disabled', () => {
     const { rerender } = render(<Text content="Test Text" color="#333333" />);
     const text = screen.getByText(/test text/i);
-    
+
     // Check enabled state
     const enabledColor = window.getComputedStyle(text).color;
-    
+
     // Rerender with disabled prop
     rerender(<Text content="Test Text" disabled color="#333333" />);
-    
+
     // Check disabled state
     const disabledColor = window.getComputedStyle(text).color;
-    
+
     // Colors should be different
     expect(enabledColor).not.toBe(disabledColor);
   });
@@ -31,7 +31,7 @@ describe('Text Component', () => {
   it('should have not-allowed cursor when disabled', () => {
     render(<Text content="Test Text" disabled />);
     const text = screen.getByText(/test text/i);
-    
+
     const cursorStyle = window.getComputedStyle(text).cursor;
     expect(cursorStyle).toBe('not-allowed');
   });

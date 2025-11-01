@@ -8,15 +8,15 @@ const ImageContainer = styled.div<{
   disabled?: boolean;
 }>`
   display: inline-block;
-  background-color: ${(props) => props.$backgroundColor || 'transparent'};
-  cursor: ${(props) =>
+  background-color: ${props => props.$backgroundColor || 'transparent'};
+  cursor: ${props =>
     props.disabled ? 'not-allowed' : props.$clickable ? 'pointer' : 'default'};
-  opacity: ${(props) => (props.disabled ? 0.4 : 1)};
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
   transition: all 0.3s ease;
   overflow: hidden;
 
   &:hover {
-    opacity: ${(props) => (props.disabled ? 0.4 : props.$clickable ? 0.8 : 1)};
+    opacity: ${props => (props.disabled ? 0.4 : props.$clickable ? 0.8 : 1)};
   }
 `;
 
@@ -28,12 +28,12 @@ const StyledImg = styled.img<{
   disabled?: boolean;
 }>`
   display: block;
-  width: ${(props) => props.$width || 'auto'};
-  height: ${(props) => props.$height || 'auto'};
+  width: ${props => props.$width || 'auto'};
+  height: ${props => props.$height || 'auto'};
   max-width: 100%;
-  border-radius: ${(props) => props.$borderRadius || '0'};
-  object-fit: ${(props) => props.$objectFit || 'cover'};
-  filter: ${(props) => (props.disabled ? 'grayscale(100%)' : 'none')};
+  border-radius: ${props => props.$borderRadius || '0'};
+  object-fit: ${props => props.$objectFit || 'cover'};
+  filter: ${props => (props.disabled ? 'grayscale(100%)' : 'none')};
   transition: all 0.3s ease;
 
   /* Responsive */

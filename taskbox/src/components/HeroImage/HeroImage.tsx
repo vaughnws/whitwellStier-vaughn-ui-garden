@@ -9,27 +9,28 @@ const HeroContainer = styled.div<{
 }>`
   position: relative;
   width: 100%;
-  height: ${(props) => props.$height || '400px'};
+  height: ${props => props.$height || '400px'};
   overflow: hidden;
-  cursor: ${(props) =>
+  cursor: ${props =>
     props.disabled ? 'not-allowed' : props.$clickable ? 'pointer' : 'default'};
-  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
+  opacity: ${props => (props.disabled ? 0.5 : 1)};
   transition: all 0.3s ease;
 
   &:hover {
-    opacity: ${(props) => (props.disabled ? 0.5 : props.$clickable ? 0.9 : 1)};
+    opacity: ${props => (props.disabled ? 0.5 : props.$clickable ? 0.9 : 1)};
   }
 
   @media (max-width: 768px) {
-    height: ${(props) => (props.$height ? `calc(${props.$height} * 0.7)` : '280px')};
+    height: ${props =>
+      props.$height ? `calc(${props.$height} * 0.7)` : '280px'};
   }
 `;
 
-const BackgroundImage = styled.img <({ disabled?: boolean })>`
+const BackgroundImage = styled.img<{ disabled?: boolean }>`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: ${(props) => (props.disabled ? 'grayscale(100%)' : 'none')};
+  filter: ${props => (props.disabled ? 'grayscale(100%)' : 'none')};
   transition: all 0.3s ease;
 `;
 
@@ -42,8 +43,8 @@ const Overlay = styled.div<{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${(props) => props.$backgroundColor || 'rgba(0, 0, 0, 0.4)'};
-  opacity: ${(props) => props.$overlayOpacity ?? 1};
+  background-color: ${props => props.$backgroundColor || 'rgba(0, 0, 0, 0.4)'};
+  opacity: ${props => props.$overlayOpacity ?? 1};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +56,7 @@ const Title = styled.h1<{ $color?: string; disabled?: boolean }>`
   font-family: 'Open Sans', sans-serif;
   font-size: 48px;
   font-weight: 700;
-  color: ${(props) => (props.disabled ? '#cccccc' : props.$color || '#ffffff')};
+  color: ${props => (props.disabled ? '#cccccc' : props.$color || '#ffffff')};
   margin: 0 0 16px 0;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -69,7 +70,7 @@ const Subtitle = styled.p<{ $color?: string; disabled?: boolean }>`
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: ${(props) => (props.disabled ? '#cccccc' : props.$color || '#ffffff')};
+  color: ${props => (props.disabled ? '#cccccc' : props.$color || '#ffffff')};
   margin: 0;
   text-align: center;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);

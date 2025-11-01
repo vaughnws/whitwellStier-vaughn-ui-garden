@@ -2,17 +2,42 @@
 
 React component library built with Storybook, TypeScript, and Styled Components.
 
-Run it with  
 
+### Run the Docker Container
 ```bash
-cd /Users/admin/Component_Library/taskbox
-./start-docker.sh
+cd taskbox
+docker build -t whitwellStier_vaughn_coding_assignment13 .
+docker run -p 8018:8018 whitwellStier_vaughn_coding_assignment13
 ```
 
-# Setup Instructions
+Access at **http://localhost:8018**
 
-I've saved all the commands I used to make it work
-For Detailed instructions, view the DOCKER_README or the YARN_README for specific instructions. 
+### Full Documentation
+See [taskbox/README.md](./taskbox/README.md) for complete setup and usage instructions.
+
+---
+
+## Assignment 13 Features
+
+**Docker Container**
+- Production build of React app
+- Container name: `whitwellStier_vaughn_coding_assignment13`
+- Working directory: `/whitwellStier_vaughn_ui_garden_build_checks`
+- Port: 8018
+
+**Pre-commit Hooks**
+- Prettier code formatting
+- ESLint code quality checks
+- Automated test execution
+- Commits blocked on failure
+
+**CI/CD Pipeline**
+- GitHub Actions workflow
+- Runs same checks as pre-commit hooks
+- Build failure notifications
+- Prevents bypassing local checks
+
+---
 
 ## Requirements
 
@@ -23,14 +48,23 @@ For Detailed instructions, view the DOCKER_README or the YARN_README for specifi
 ## Installation
 
 ```bash
+cd taskbox
 yarn install
 ```
 
 ## Development
 
-Start Storybook development server:
+Start development server:
 
 ```bash
+cd taskbox
+yarn dev
+```
+
+Start Storybook:
+
+```bash
+cd taskbox
 yarn storybook
 ```
 
@@ -41,52 +75,61 @@ Access at http://localhost:8083
 Run tests:
 
 ```bash
+cd taskbox
 yarn test
 ```
 
-Run tests with UI:
+Run tests with coverage (CI mode):
 
 ```bash
-yarn test:ui
+cd taskbox
+yarn test:ci
 ```
 
-Run tests with coverage:
+## Linting & Formatting
 
+Check code:
 ```bash
-yarn test:coverage
+cd taskbox
+yarn lint
+yarn format:check
+```
+
+Fix issues:
+```bash
+cd taskbox
+yarn lint:fix
+yarn format
 ```
 
 ## Build
 
-Build static Storybook:
+Build production app:
 
 ```bash
+cd taskbox
+yarn build
+```
+
+Build Storybook:
+
+```bash
+cd taskbox
 yarn build-storybook
 ```
 
-Output directory: `storybook-static/`
+## Docker Commands
 
-## Docker
+See [taskbox/README.md](./taskbox/README.md) for detailed Docker commands.
 
-### Build and Run
-
+Quick reference:
 ```bash
-docker-compose up --build
+cd taskbox
+yarn docker:build    # Build container
+yarn docker:run      # Run container
+yarn docker:stop     # Stop container
+yarn docker:logs     # View logs
 ```
-
-### Stop
-
-```bash
-docker-compose down
-```
-
-### Container Details
-
-- Container name: WhitwellStier_Vaughn_coding_assignment12
-- Working directory: /WhitwellStier_Vaughn_ui_garden
-- Port: 8083
-
-Access at http://localhost:8083
 
 ## Components
 
@@ -114,14 +157,25 @@ The library includes 18 components:
 ## Project Structure
 
 ```
-src/
-├── components/
-│   ├── ComponentName/
-│   │   ├── ComponentName.tsx
-│   │   ├── ComponentName.types.ts
-│   │   ├── ComponentName.stories.tsx
-│   │   ├── ComponentName.test.tsx
-│   │   └── index.ts
-│   └── index.ts
-└── ...
+.
+├── taskbox/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Button/
+│   │   │   ├── Card/
+│   │   │   └── ...
+│   │   └── ...
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── .prettierrc
+│   ├── .eslintrc.cjs
+│   ├── .husky/
+│   │   └── pre-commit
+│   ├── .github/
+│   │   └── workflows/
+│   │       └── ci.yml
+│   └── README.md
+└── .git/
+    └── hooks/
+        └── pre-commit
 ```

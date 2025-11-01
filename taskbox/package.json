@@ -16,19 +16,34 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
+    "test:ci": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,md,json}\"",
+    "prepare": "husky install || true",
     "storybook": "storybook dev -p 8083",
     "build-storybook": "storybook build",
     "init-msw": "msw init public/",
-    "docker:build": "docker build -t component-library .",
-    "docker:run": "docker run -d --name component-library-storybook -p 8083:8083 component-library",
-    "docker:stop": "docker stop component-library-storybook",
-    "docker:remove": "docker rm component-library-storybook",
-    "docker:logs": "docker logs -f component-library-storybook",
+    "docker:build": "docker build -t whitwellStier_vaughn_coding_assignment13 .",
+    "docker:run": "docker run -d --name whitwellStier_vaughn_coding_assignment13 -p 8018:8018 whitwellStier_vaughn_coding_assignment13",
+    "docker:stop": "docker stop whitwellStier_vaughn_coding_assignment13",
+    "docker:remove": "docker rm whitwellStier_vaughn_coding_assignment13",
+    "docker:logs": "docker logs -f whitwellStier_vaughn_coding_assignment13",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:restart": "docker-compose restart"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.{css,md,json}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@chromatic-com/storybook": "4.0.1",
@@ -52,10 +67,13 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "eslint-plugin-storybook": "^9.1.5",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
     "jsdom": "^27.0.0",
+    "lint-staged": "^16.2.6",
     "msw": "^2.3.0",
     "msw-storybook-addon": "^2.0.5",
     "playwright": "^1.54.1",
+    "prettier": "^3.6.2",
     "storybook": "^9.1.5",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",

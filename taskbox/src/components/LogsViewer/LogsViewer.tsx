@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { LogsViewerProps } from './LogsViewer.types';
 import { TerminalIcon } from '../icons/icons';
 
-const Container = styled.div<{ $backgroundColor?: string ; disabled?: boolean }>`
+const Container = styled.div<{ $backgroundColor?: string; disabled?: boolean }>`
   font-family: 'Open Sans', sans-serif;
-  background-color: ${(props) => props.$backgroundColor || '#272727'};
+  background-color: ${props => props.$backgroundColor || '#272727'};
   border-radius: 12px;
   padding: 24px;
   border: 1px solid #303030;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -43,7 +43,7 @@ const LogsContainer = styled.div<{ $maxHeight?: string }>`
   padding: 16px;
   font-family: 'Courier New', monospace;
   font-size: 12px;
-  max-height: ${(props) => props.$maxHeight || '192px'};
+  max-height: ${props => props.$maxHeight || '192px'};
   overflow-y: auto;
   color: #f0f0f0;
 

@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { ResourceBarProps } from './Resources.types';
 
-const ResourceContainer = styled.div <{ disabled?: boolean }>`
+const ResourceContainer = styled.div<{ disabled?: boolean }>`
   font-family: 'Open Sans', sans-serif;
   margin-bottom: 16px;
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
   transition: all 0.3s ease;
 
   &:last-child {
@@ -25,13 +25,13 @@ const ResourceHeader = styled.div`
   margin-bottom: 8px;
 `;
 
-const ResourceLabel = styled.div <{ disabled?: boolean }>`
+const ResourceLabel = styled.div<{ disabled?: boolean }>`
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: ${(props) => (props.disabled ? '#999999' : '#f0f0f0')};
+  color: ${props => (props.disabled ? '#999999' : '#f0f0f0')};
 
   svg {
     width: 16px;
@@ -48,10 +48,10 @@ const ResourceLabel = styled.div <{ disabled?: boolean }>`
   }
 `;
 
-const ResourceValue = styled.div <{ disabled?: boolean }>`
+const ResourceValue = styled.div<{ disabled?: boolean }>`
   font-size: 14px;
   font-weight: 700;
-  color: ${(props) => (props.disabled ? '#999999' : '#f0f0f0')};
+  color: ${props => (props.disabled ? '#999999' : '#f0f0f0')};
 
   @media (max-width: 768px) {
     font-size: 13px;
@@ -61,7 +61,7 @@ const ResourceValue = styled.div <{ disabled?: boolean }>`
 const ProgressBarContainer = styled.div<{ $backgroundColor?: string }>`
   width: 100%;
   height: 8px;
-  background-color: ${(props) => props.$backgroundColor || '#1a1a1a'};
+  background-color: ${props => props.$backgroundColor || '#1a1a1a'};
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -73,8 +73,8 @@ const ProgressBarContainer = styled.div<{ $backgroundColor?: string }>`
 
 const ProgressBar = styled.div<{ $value: number; $color: string }>`
   height: 100%;
-  width: ${(props) => Math.min(props.$value, 100)}%;
-  background-color: ${(props) => props.$color};
+  width: ${props => Math.min(props.$value, 100)}%;
+  background-color: ${props => props.$color};
   border-radius: 4px;
   transition: all 0.5s ease;
   position: relative;
@@ -96,7 +96,8 @@ const ProgressBar = styled.div<{ $value: number; $color: string }>`
   }
 
   @keyframes shimmer {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(100%);
     }
     50% {
@@ -137,7 +138,9 @@ export const Resources: React.FC<ResourceBarProps> = ({
           {icon}
           <span>{label}</span>
         </ResourceLabel>
-        <ResourceValue disabled={disabled}>{displayValue.toFixed(0)}%</ResourceValue>
+        <ResourceValue disabled={disabled}>
+          {displayValue.toFixed(0)}%
+        </ResourceValue>
       </ResourceHeader>
       <ProgressBarContainer $backgroundColor={backgroundColor}>
         <ProgressBar $value={displayValue} $color={barColor} />
