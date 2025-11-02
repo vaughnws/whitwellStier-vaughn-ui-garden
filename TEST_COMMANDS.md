@@ -1,6 +1,6 @@
 # Quick Test Commands
 
-Run these commands in order to verify everything works:
+Run these commands:
 
 ## 1. Navigate to project
 ```bash
