@@ -14,14 +14,14 @@ RUN yarn install --frozen-lockfile
 # Copy all project files
 COPY . .
 
-# Build production React app
-RUN yarn build
+# Build Storybook static site
+RUN yarn build-storybook
 
 # Production stage - serve static files with nginx
 FROM nginx:alpine
 
-# Copy built files from build stage
-COPY --from=build /whitwellStier_vaughn_ui_garden_build_checks/dist /usr/share/nginx/html
+# Copy built Storybook files from build stage
+COPY --from=build /whitwellStier_vaughn_ui_garden_build_checks/storybook-static /usr/share/nginx/html
 
 # Create nginx configuration for port 8018
 RUN echo 'server { \
