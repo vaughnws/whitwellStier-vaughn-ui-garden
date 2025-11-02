@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-        cache-dependency-path: './taskbox/yarn.lock'
+        cache-dependency-path: 'taskbox/yarn.lock'
     
     - name: Install dependencies
       working-directory: ./taskbox
@@ -46,12 +46,4 @@ jobs:
     
     - name: Build application
       working-directory: ./taskbox
-      run: yarn build
-    
-    - name: Upload coverage reports (if available)
-      if: success() && hashFiles('taskbox/coverage/lcov.info') != ''
-      uses: codecov/codecov-action@v4
-      with:
-        files: ./taskbox/coverage/lcov.info
-        flags: unittests
-        fail_ci_if_error: false
+      run: yarn build-storybook
