@@ -10,15 +10,15 @@
 ### 1. Build the Docker Container
 ```bash
 cd taskbox
-docker build -t whitwellStier_vaughn_coding_assignment13 .
+docker build -t whitwellstier_vaughn_coding_assignment13 .
 ```
 
 ### 2. Run the Container
 ```bash
-docker run -p 8018:8018 whitwellStier_vaughn_coding_assignment13
+docker run -p 8018:8018 whitwellstier_vaughn_coding_assignment13
 ```
 
-Or use the npm script:
+Or use the yarn script:
 ```bash
 cd taskbox
 yarn docker:build
@@ -71,7 +71,8 @@ If any check fails, the commit will be blocked. Fix the issues before committing
 ### Manually Run Pre-commit Checks
 ```bash
 cd taskbox
-yarn lint-staged
+yarn format:check
+yarn lint
 yarn test:ci
 ```
 
@@ -89,27 +90,27 @@ You'll receive notifications if the build fails.
 
 ### Build Container
 ```bash
-docker build -t whitwellStier_vaughn_coding_assignment13 .
+docker build -t whitwellstier_vaughn_coding_assignment13 .
 ```
 
 ### Run Container
 ```bash
-docker run -d --name whitwellStier_vaughn_coding_assignment13 -p 8018:8018 whitwellStier_vaughn_coding_assignment13
+docker run -d --name whitwellstier_vaughn_coding_assignment13 -p 8018:8018 whitwellstier_vaughn_coding_assignment13
 ```
 
 ### Stop Container
 ```bash
-docker stop whitwellStier_vaughn_coding_assignment13
+docker stop whitwellstier_vaughn_coding_assignment13
 ```
 
 ### Remove Container
 ```bash
-docker rm whitwellStier_vaughn_coding_assignment13
+docker rm whitwellstier_vaughn_coding_assignment13
 ```
 
 ### View Logs
 ```bash
-docker logs -f whitwellStier_vaughn_coding_assignment13
+docker logs -f whitwellstier_vaughn_coding_assignment13
 ```
 
 ### Using Yarn Scripts
@@ -129,7 +130,7 @@ yarn docker:logs     # View container logs
 │   ├── README.md
 │   ├── package.json
 │   ├── .prettierrc
-│   ├── .eslintrc.cjs
+│   ├── eslint.config.js
 │   ├── .dockerignore
 │   ├── .husky/
 │   │   └── pre-commit
