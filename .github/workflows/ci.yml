@@ -10,10 +10,6 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     
-    defaults:
-      run:
-        working-directory: taskbox
-    
     strategy:
       matrix:
         node-version: [20.x]
@@ -30,28 +26,32 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-        cache-dependency-path: 'taskbox/yarn.lock'
+        cache-dependency-path: './taskbox/yarn.lock'
     
     - name: Install dependencies
+      working-directory: ./taskbox
       run: yarn install --frozen-lockfile
     
     - name: Run Prettier check
+      working-directory: ./taskbox
       run: yarn format:check
     
     - name: Run ESLint
+      working-directory: ./taskbox
       run: yarn lint
     
     - name: Run tests
+      working-directory: ./taskbox
       run: yarn test:ci
     
     - name: Build application
+      working-directory: ./taskbox
       run: yarn build
     
     - name: Upload coverage reports (if available)
       if: success() && hashFiles('taskbox/coverage/lcov.info') != ''
       uses: codecov/codecov-action@v4
       with:
-        files: ./coverage/lcov.info
+        files: ./taskbox/coverage/lcov.info
         flags: unittests
         fail_ci_if_error: false
-        working-directory: taskbox
