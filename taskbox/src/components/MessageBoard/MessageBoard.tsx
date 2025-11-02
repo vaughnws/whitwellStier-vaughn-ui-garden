@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MessageBoardProps, Message } from './MessageBoard.types';
+import { MessageBoardProps } from './MessageBoard.types';
 import { SendIcon, TrashIcon, MessageSquareIcon } from '../icons/icons';
 
 const BoardContainer = styled.div<{
