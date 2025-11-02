@@ -6,8 +6,8 @@ React component library built with Storybook, TypeScript, and Styled Components.
 ### Run the Docker Container
 ```bash
 cd taskbox
-docker build -t whitwellStier_vaughn_coding_assignment13 .
-docker run -p 8018:8018 whitwellStier_vaughn_coding_assignment13
+docker build -t whitwellstier_vaughn_coding_assignment13 .
+docker run -p 8018:8018 whitwellstier_vaughn_coding_assignment13
 ```
 
 Access at **http://localhost:8018**
@@ -21,8 +21,8 @@ See [taskbox/README.md](./taskbox/README.md) for complete setup and usage instru
 
 **Docker Container**
 - Production build of React app
-- Container name: `whitwellStier_vaughn_coding_assignment13`
-- Working directory: `/whitwellStier_vaughn_ui_garden_build_checks`
+- Container name: `whitwellstier_vaughn_coding_assignment13`
+- Working directory: `/whitwellstier_vaughn_ui_garden_build_checks`
 - Port: 8018
 
 **Pre-commit Hooks**
