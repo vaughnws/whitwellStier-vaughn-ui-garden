@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { RadioButtonProps } from './RadioButton.types';
 
-const RadioContainer = styled.label<{ disabled?: boolean }>`
+const RadioContainer = styled.label<{ disabled?: boolean >`
   display: inline-flex;
   align-items: center;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
